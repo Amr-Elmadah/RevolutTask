@@ -1,0 +1,221 @@
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext {
+    //Android
+    androidBuildToolsVersion = "29.0.2"
+    androidMinSdkVersion = 19
+    androidTargetSdkVersion = 29
+    androidCompileSdkVersion = 29
+
+    //Libraries
+
+    //data libraries
+    rxJavaVersion = '2.2.5'
+    coroutinesVersion = '1.3.2'
+    rxAndroidVersion = '2.1.0'
+    daggerVersion = '2.21'
+    dataBindingVersion = '2.21'
+
+    javaxAnnotationVersion = '1.0'
+    javaxInjectVersion = '1'
+    gsonVersion = '2.8.5'
+    retrofit = '2.6.2'
+    okhttp = '4.2.2'
+    okhttpLogging = '4.2.2'
+    okhttpFacebook = '1.5.1'
+    androidAnnotationsVersion = '21.0.3'
+    parcelerApi = '1.1.12'
+    lifecycleVersion = '1.1.1'
+    workManagerVersion = '1.0.0-alpha09'
+    roomVersion = '1.1.1'
+
+    //ui libraries
+    butterKnifeVersion = '10.0.0'
+    androidxVersion = '1.0.0'
+    androidxRecyclerViewVersion = '1.1.0'
+    androidLegacyVersion = '1.0.0'
+    androidxLifeCycleVersion = '2.1.0'
+    androidxAppCompact = '1.1.0'
+    androidxCoreVersion = '1.2.0-rc01'
+    androidxConstrainLayout = '1.1.3'
+    arrowVersion = '1.0.0'
+    sdpAndroid = '1.0.6'
+    avLoader = '2.1.3'
+    picasso = '2.71828'
+    picassoOkhttp = '1.1.0'
+
+    searchDialog = '1.2.3'
+    datePicker = '4.1.2'
+    circleimageview = '3.0.1'
+    roundedImageViewVersion = '2.3.0'
+    simpleRatingBar = '1.4.3'
+    materialDialogVersion = '3.1.1'
+    blurViewVersion = '1.6.2'
+    bottomBar = '2.3.1'
+    glideVersion = '4.9.0'
+    smsInterceptorVersion = '1.0'
+
+    // google play service
+    playServices = '16.0.0'
+    firebaseCore = '16.0.7'
+    firebaseMessaging = '17.3.4'
+
+    //Testing
+    robolectricVersion = '3.1.1'
+    jUnitVersion = '4.12'
+    testRunnerVersion = '1.0.2'
+    assertJVersion = '1.7.1'
+    mockitoVersion = '1.9.5'
+    dexmakerVersion = '1.0'
+    espressoVersion = '3.0.2'
+    testingSupportLibVersion = '0.1'
+
+    //Development
+    leakCanaryVersion = '1.6.3'
+
+    // packages
+    reactivePackage = 'io.reactivex.rxjava2'
+    coroutinesPackage = 'org.jetbrains.kotlinx'
+    daggerPackage = 'com.google.dagger'
+    dataBindingPackage = 'com.android.databinding'
+    glidePackage = 'com.github.bumptech.glide'
+    lifecyclePackage = 'android.arch.lifecycle'
+    workmanagerPackage = 'android.arch.work'
+    roomPackage = 'android.arch.persistence.room'
+
+    playServicesDependencies = [
+            playServicesAuth     : "com.google.android.gms:play-services-auth:${playServices}",
+            playServicesLocation : "com.google.android.gms:play-services-location:${playServices}",
+            playServicesMaps     : "com.google.android.gms:play-services-maps:${playServices}",
+            playServicesPlaces   : "com.google.android.gms:play-services-places:${playServices}",
+            playServicesAnalytics: "com.google.android.gms:play-services-analytics:${playServices}",
+            firebaseCore         : "com.google.firebase:firebase-core:${firebaseCore}",
+            firebaseMessaging    : "com.google.firebase:firebase-messaging:${firebaseMessaging}",
+    ]
+
+    presentationDependencies = [
+            butterKnife        : "com.jakewharton:butterknife:${butterKnifeVersion}",
+            butterKnifeCompiler: "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+            javaxAnnotation    : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            appcompat          : "androidx.appcompat:appcompat:${androidxAppCompact}",
+            androidxCore       : "androidx.core:core-ktx:${androidxCoreVersion}",
+            androidxLifeCycle  : "androidx.lifecycle:lifecycle-extensions:${androidxLifeCycleVersion}",
+            legacy             : "androidx.legacy:legacy-support-v4:${androidxVersion}",
+            material           : "com.google.android.material:material:${androidxVersion}",
+            recyclerview       : "androidx.recyclerview:recyclerview:${androidxRecyclerViewVersion}",
+            cardview           : "androidx.cardview:cardview:${androidxVersion}",
+            constraintlayout   : "androidx.constraintlayout:constraintlayout:${androidxConstrainLayout}",
+            sdpAndroid         : "com.intuit.sdp:sdp-android:${sdpAndroid}",
+            avLoader           : "com.wang.avi:library:${avLoader}",
+            picasso            : "com.squareup.picasso:picasso:${picasso}",
+            picassoOkhttp      : "com.jakewharton.picasso:picasso2-okhttp3-downloader:${picassoOkhttp}",
+            roundedImageView   : "com.makeramen:roundedimageview:${roundedImageViewVersion}",
+            circleimageview    : "de.hdodenhof:circleimageview:${circleimageview}",
+            simpleRatingBar    : "com.github.ome450901:SimpleRatingBar:${simpleRatingBar}",
+            materialDialog     : "com.afollestad.material-dialogs:core:${materialDialogVersion}",
+            blurView           : "com.eightbitlab:blurview:${blurViewVersion}"
+    ]
+
+    dataDependencies = [
+            gson              : "com.google.code.gson:gson:${gsonVersion}",
+            rxJava            : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid         : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            javaxAnnotation   : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject       : "javax.inject:javax.inject:${javaxInjectVersion}",
+            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
+            okhttpFacebook    : "com.facebook.stetho:stetho-okhttp3:${okhttpFacebook}",
+            parcelerApi       : "org.parceler:parceler-api:${parcelerApi}",
+            parceler          : "org.parceler:parceler:${parcelerApi}"
+    ]
+
+    //Network libraries
+    retrofitDependencies = [
+            retrofit        : "com.squareup.retrofit2:retrofit:${retrofit}",
+            converterScalars: "com.squareup.retrofit2:converter-scalars:${retrofit}",
+            retrofitRx      : "com.squareup.retrofit2:adapter-rxjava2:${retrofit}",
+            converterGson   : "com.squareup.retrofit2:converter-gson:${retrofit}",
+            okhttp          : "com.squareup.okhttp3:okhttp:${okhttp}",
+            okhttpLogging   : "com.squareup.okhttp3:logging-interceptor:${okhttpLogging}"
+    ]
+
+    //RX Libraries dependencies
+    rxDependencies = [
+            rxJava   : buildDependency(reactivePackage, 'rxjava', rxJavaVersion),
+            rxAndroid: buildDependency(reactivePackage, 'rxandroid', rxAndroidVersion)]
+
+    //Coroutines
+    coroutinesDependencies = [
+            coroutinesCore   : buildDependency(coroutinesPackage, 'kotlinx-coroutines-core', coroutinesVersion),
+            coroutinesAndroid: buildDependency(coroutinesPackage, 'kotlinx-coroutines-android', coroutinesVersion)
+    ]
+
+    //Dagger Libraries dependencies
+    daggerDependencies = [
+            dagger                : buildDependency(daggerPackage, 'dagger', daggerVersion),
+            daggerCompiler        : buildDependency(daggerPackage, 'dagger-compiler', daggerVersion),
+            daggerAndroid         : buildDependency(daggerPackage, 'dagger-android', daggerVersion),
+            daggerAndroidSupport  : buildDependency(daggerPackage, 'dagger-android-support', daggerVersion),
+            daggerAndroidProcessor: buildDependency(daggerPackage, 'dagger-android-processor', daggerVersion)
+    ]
+
+    broadcastDependencies = [
+            smsInterceptor : "com.github.vitalibov:smsinterceptor:${smsInterceptorVersion}"
+    ]
+
+    dataBindingDependencies = [
+            dataBinding: buildDependency(dataBindingPackage, 'compiler', dataBindingVersion)
+    ]
+
+    glideDependencies = [
+            glide          : buildDependency(glidePackage, 'glide', glideVersion),
+            compiler       : buildDependency(glidePackage, 'compiler', glideVersion),
+            transformations: buildDependency('jp.wasabeef', 'glide-transformations', '3.1.1')
+    ]
+
+    lifecycleDependencies = [
+            // ViewModel and LiveData
+            extensions: buildDependency(lifecyclePackage, 'extensions', lifecycleVersion),
+            // alternatively - Lifecycles only (no ViewModel or LiveData).
+            //     Support library depends on this lightweight import
+            runtime   : buildDependency(lifecyclePackage, 'runtime', lifecycleVersion),
+            compiler  : buildDependency(lifecyclePackage, 'compiler', lifecycleVersion)
+    ]
+
+    //work manager
+    workManagerDependencies = [workManager: buildDependency(workmanagerPackage, 'work-runtime', workManagerVersion)]
+
+    roomDependencies = [
+            runtime : buildDependency(roomPackage, 'runtime', roomVersion),
+            compiler: buildDependency(roomPackage, 'compiler', roomVersion),
+            rx      : buildDependency(roomPackage, 'rxjava2', roomVersion)
+    ]
+
+    presentationTestDependencies = [
+            mockito          : "org.mockito:mockito-core:${mockitoVersion}",
+            dexmaker         : "com.google.dexmaker:dexmaker:${dexmakerVersion}",
+            dexmakerMockito  : "com.google.dexmaker:dexmaker-mockito:${dexmakerVersion}",
+            espresso         : 'androidx.test.espresso:espresso-core:3.2.0',
+            testingSupportLib: "com.android.support.test:testing-support-lib:${testingSupportLibVersion}",
+    ]
+
+    dataTestDependencies = [
+            junit      : "junit:junit:${jUnitVersion}",
+            testRunner : 'androidx.test:runner:1.2.0',
+            assertj    : "org.assertj:assertj-core:${assertJVersion}",
+            mockito    : "org.mockito:mockito-core:${mockitoVersion}",
+            robolectric: "org.robolectric:robolectric:${robolectricVersion}"
+    ]
+
+    leakCanaryDependencies = [
+            developmentLeakCanary: "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
+            releaseLeakCanary    : "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}"
+    ]
+}
+
+static String buildDependency(String pack, String dependency, String version) {
+    return "${pack}:${dependency}:${version}"
+}

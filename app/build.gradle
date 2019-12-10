@@ -1,35 +1,128 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
+def QA = true
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+
+    compileSdkVersion androidCompileSdkVersion
+    buildToolsVersion androidBuildToolsVersion
+
     defaultConfig {
-        applicationId "com.revolut.currencies"
-        minSdkVersion 19
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+
+        applicationId androidApplicationId
+        versionCode androidVersionCode
+        versionName androidVersionName
+        testInstrumentationRunner testInstrumentationRunner
+        testApplicationId testApplicationId
+        multiDexEnabled true
     }
+    androidExtensions {
+        experimental = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "developer"
+
+    productFlavors.all {
+        QA = true
+        buildConfigField "boolean", "QA", "" + QA
+    }
+    productFlavors {
+        staging {
+            dimension "developer"
+            QA = true
+            buildConfigField "boolean", "QA", "" + QA
+        }
+        production {
+            dimension "developer"
+            QA = false
+            buildConfigField "boolean", 'QA', "" + QA
+        }
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //Androidx
+    implementation presentationDependencies.androidxCore
+    implementation presentationDependencies.androidxLifeCycle
+    implementation presentationDependencies.appcompat
+    implementation presentationDependencies.legacy
+    implementation presentationDependencies.material
+    implementation presentationDependencies.cardview
+    implementation presentationDependencies.recyclerview
+    implementation presentationDependencies.constraintlayout
+
+    //UI
+    implementation presentationDependencies.sdpAndroid
+    implementation presentationDependencies.avLoader
+    implementation presentationDependencies.picasso
+    implementation presentationDependencies.picassoOkhttp
+    implementation glideDependencies.glide
+    implementation glideDependencies.transformations
+    kapt glideDependencies.compiler
+    implementation presentationDependencies.circleimageview
+
+    // Dagger
+    implementation daggerDependencies.dagger
+    kapt daggerDependencies.daggerCompiler
+    implementation daggerDependencies.daggerAndroid
+    implementation daggerDependencies.daggerAndroidSupport
+    kapt daggerDependencies.daggerAndroidProcessor
+
+    //RX
+    implementation rxDependencies.rxJava
+    implementation rxDependencies.rxAndroid
+
+    //Coroutines
+    implementation coroutinesDependencies.coroutinesCore
+    implementation coroutinesDependencies.coroutinesAndroid
+
+    //Network
+    implementation retrofitDependencies.retrofit
+    implementation retrofitDependencies.converterScalars
+    implementation retrofitDependencies.converterGson
+    implementation retrofitDependencies.okhttp
+    implementation retrofitDependencies.okhttpLogging
+    implementation retrofitDependencies.retrofitRx
+    implementation dataDependencies.okhttpFacebook
+
+    //Parcel
+    implementation dataDependencies.parcelerApi
+    kapt dataDependencies.parceler
+
+    //Leak Canary
+    debugImplementation leakCanaryDependencies.developmentLeakCanary
+    releaseImplementation leakCanaryDependencies.releaseLeakCanary
+
+    //Testing
+    testImplementation dataTestDependencies.junit
+    androidTestImplementation dataTestDependencies.testRunner
+    androidTestImplementation presentationTestDependencies.espresso
+
+    configurations {
+        all*.exclude group: 'com.google.guava', module: 'listenablefuture'
+    }
 }
