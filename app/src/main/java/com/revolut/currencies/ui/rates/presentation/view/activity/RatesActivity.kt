@@ -102,6 +102,7 @@ class RatesActivity : AppCompatActivity() {
                 placeholder = R.color.colorPrimary
             )
         })
+
         val h = Handler()
         mViewModel.mRates.observe(this, Observer {
             it?.let { rates ->

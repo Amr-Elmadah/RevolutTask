@@ -20,8 +20,13 @@ android {
         testApplicationId testApplicationId
         multiDexEnabled true
     }
+
     androidExtensions {
         experimental = true
+    }
+
+    testOptions {
+        unitTests.includeAndroidResources = true
     }
 
     buildTypes {
@@ -119,8 +124,12 @@ dependencies {
 
     //Testing
     testImplementation dataTestDependencies.junit
+    testImplementation 'androidx.test:core:1.2.0'
+    testImplementation dataTestDependencies.mockito
     androidTestImplementation dataTestDependencies.testRunner
     androidTestImplementation presentationTestDependencies.espresso
+    androidTestImplementation presentationTestDependencies.mockito
+    testImplementation 'org.robolectric:robolectric:4.3.1'
 
     configurations {
         all*.exclude group: 'com.google.guava', module: 'listenablefuture'

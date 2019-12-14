@@ -6,12 +6,20 @@ allprojects {
 
 ext {
     //Android
+    /*
+    We can use this just for run the project but for unit testing we have to go down with the 28
+    til the newer android studio version on the stable channel will support that
+    
     androidBuildToolsVersion = "29.0.2"
-    androidMinSdkVersion = 19
     androidTargetSdkVersion = 29
     androidCompileSdkVersion = 29
+    */
+    androidBuildToolsVersion = "28.0.3"
+    androidMinSdkVersion = 19
+    androidTargetSdkVersion = 28
+    androidCompileSdkVersion = 28
 
-    //Libraries
+    // Libraries
 
     //data libraries
     rxJavaVersion = '2.2.5'
@@ -163,7 +171,7 @@ ext {
     ]
 
     broadcastDependencies = [
-            smsInterceptor : "com.github.vitalibov:smsinterceptor:${smsInterceptorVersion}"
+            smsInterceptor: "com.github.vitalibov:smsinterceptor:${smsInterceptorVersion}"
     ]
 
     dataBindingDependencies = [
@@ -205,6 +213,7 @@ ext {
     dataTestDependencies = [
             junit      : "junit:junit:${jUnitVersion}",
             testRunner : 'androidx.test:runner:1.2.0',
+            testCore   : 'androidx.test:core:1.0.0',
             assertj    : "org.assertj:assertj-core:${assertJVersion}",
             mockito    : "org.mockito:mockito-core:${mockitoVersion}",
             robolectric: "org.robolectric:robolectric:${robolectricVersion}"
