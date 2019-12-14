@@ -15,3 +15,5 @@ Code task of Revolut company
 * MVVM with Clean Code
 * Leak Canary
 * Glide
+* JUnit - Mockito
+* Espresso
