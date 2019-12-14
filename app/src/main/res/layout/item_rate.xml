@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_16sdp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/imgRate"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitXY"
+        custom:layout_constraintBottom_toBottomOf="parent"
+        custom:layout_constraintStart_toStartOf="parent"
+        custom:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/llCurrencyData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/_16sdp"
+        android:paddingEnd="@dimen/_16sdp"
+        custom:layout_constraintBottom_toBottomOf="parent"
+        custom:layout_constraintStart_toEndOf="@+id/imgRate"
+        custom:layout_constraintTop_toTopOf="parent">
+
+        <com.revolut.currencies.base.presentation.customviews.CTextView
+            android:id="@+id/tvCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="US"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold" />
+
+        <com.revolut.currencies.base.presentation.customviews.CTextView
+            android:id="@+id/tvCurrencyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="2"
+            android:text="US Dollar"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/_14sdp"
+            custom:textStyleFont="medium" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="end"
+        custom:layout_constraintBottom_toBottomOf="parent"
+        custom:layout_constraintEnd_toEndOf="parent"
+        custom:layout_constraintStart_toEndOf="@+id/llCurrencyData"
+        custom:layout_constraintTop_toTopOf="parent">
+
+        <com.revolut.currencies.base.presentation.customviews.CEditText
+            android:id="@+id/etRate"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="@string/currency_amount_hint"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:maxLines="1"
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/_20sdp"
+            custom:textStyleFont="medium" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

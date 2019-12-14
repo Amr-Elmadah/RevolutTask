@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Revolut Currencies Task</string>
+    <string name="internet_connection">No internet connection</string>
+    <string name="retry">Retry</string>
+
+    <!--Rates-->
+    <string name="rates">Rates</string>
+    <string name="no_data">No data</string>
+    <string name="currency_amount_hint">0</string>
 </resources>
