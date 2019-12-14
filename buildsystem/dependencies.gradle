@@ -73,9 +73,10 @@ ext {
     firebaseMessaging = '17.3.4'
 
     //Testing
-    robolectricVersion = '3.1.1'
+    robolectricVersion = '4.3.1'
     jUnitVersion = '4.12'
-    testRunnerVersion = '1.0.2'
+    testRunnerVersion = '1.2.0'
+    testJUnitKtx = '1.1.0'
     assertJVersion = '1.7.1'
     mockitoVersion = '1.9.5'
     dexmakerVersion = '1.0'
@@ -211,12 +212,13 @@ ext {
     ]
 
     dataTestDependencies = [
-            junit      : "junit:junit:${jUnitVersion}",
-            testRunner : 'androidx.test:runner:1.2.0',
-            testCore   : 'androidx.test:core:1.0.0',
-            assertj    : "org.assertj:assertj-core:${assertJVersion}",
-            mockito    : "org.mockito:mockito-core:${mockitoVersion}",
-            robolectric: "org.robolectric:robolectric:${robolectricVersion}"
+            junit          : "junit:junit:${jUnitVersion}",
+            testRunner     : "androidx.test:runner:${testRunnerVersion}",
+            testCore       : "androidx.test:core:${testRunnerVersion}",
+            testingJUnitKtx: "androidx.test.ext:junit-ktx:${testJUnitKtx}",
+            assertj        : "org.assertj:assertj-core:${assertJVersion}",
+            mockito        : "org.mockito:mockito-core:${mockitoVersion}",
+            robolectric    : "org.robolectric:robolectric:${robolectricVersion}"
     ]
 
     leakCanaryDependencies = [

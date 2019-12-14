@@ -20,9 +20,11 @@ import com.revolut.currencies.ui.rates.presentation.view.adapter.RatesAdapter
 import com.revolut.currencies.ui.rates.presentation.viewmodel.RatesViewModel
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_rates.*
-import kotlinx.android.synthetic.main.item_rate.*
+import kotlinx.android.synthetic.main.item_rate.imgRate
+import kotlinx.android.synthetic.main.item_rate.tvCurrency
+import kotlinx.android.synthetic.main.item_rate.tvCurrencyName
+import kotlinx.android.synthetic.main.layout_base_rate.*
 import javax.inject.Inject
-
 
 class RatesActivity : AppCompatActivity() {
     @Inject

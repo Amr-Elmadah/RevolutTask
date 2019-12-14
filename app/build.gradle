@@ -127,9 +127,11 @@ dependencies {
     testImplementation 'androidx.test:core:1.2.0'
     testImplementation dataTestDependencies.mockito
     androidTestImplementation dataTestDependencies.testRunner
+    androidTestImplementation dataTestDependencies.testCore
+    androidTestImplementation dataTestDependencies.testingJUnitKtx
+    testImplementation dataTestDependencies.robolectric
     androidTestImplementation presentationTestDependencies.espresso
     androidTestImplementation presentationTestDependencies.mockito
-    testImplementation 'org.robolectric:robolectric:4.3.1'
 
     configurations {
         all*.exclude group: 'com.google.guava', module: 'listenablefuture'

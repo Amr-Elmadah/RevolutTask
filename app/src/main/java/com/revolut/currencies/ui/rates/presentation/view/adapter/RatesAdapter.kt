@@ -46,12 +46,11 @@ class RatesAdapter : BaseRecyclerAdapter<Rate>() {
         fun bind(item: Rate) = with(itemView) {
             tvCurrency.text = item.currency
             tvCurrencyName.text = item.currencyName
-            etRate.isFocusable = false
 
             if (item.value != 0.0) {
-                etRate.setText(item.value.toString())
+                tvRate.text = item.value.toString()
             } else {
-                etRate.setText("")
+                tvRate.text = ""
             }
             imgRate.loadFromUrl(
                 url = item.image,
