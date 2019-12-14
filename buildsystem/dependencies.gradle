@@ -23,7 +23,7 @@ ext {
     javaxAnnotationVersion = '1.0'
     javaxInjectVersion = '1'
     gsonVersion = '2.8.5'
-    retrofit = '2.6.2'
+    retrofit = '2.7.0'
     okhttp = '4.2.2'
     okhttpLogging = '4.2.2'
     okhttpFacebook = '1.5.1'
